@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="app-body">
+  <app-sidebar></app-sidebar>
+  <!-- Main content -->
+  <main class="main">
+    <!-- Breadcrumb -->
+    <ol class="breadcrumb">
+      <app-breadcrumbs></app-breadcrumbs>
+    </ol>
+    <!--<div [ngStyle]="{'visibility': tabView + '!important;'}">
+      <div *ngIf="tabs.length > 0">
+        <div *ngFor="let tab of tabs; let i = index">
+          &lt;!&ndash;<app-tab *ngIf="i === selected" [link]="tab.url"></app-tab>&ndash;&gt;
+          <app-tab [ngStyle]="{'visibility': tab.visibility}" [link]="tab.url"></app-tab>
+        </div>
+      </div>
+    </div>-->
+    <div>
+      <router-outlet></router-outlet>
+    </div><!-- /.conainer-fluid -->
+  </main>
+  <app-aside></app-aside>
+</div>
+<app-footer></app-footer>

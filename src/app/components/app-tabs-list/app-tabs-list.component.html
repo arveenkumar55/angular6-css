@@ -1,0 +1,42 @@
+<head>
+<style>
+
+
+.btn-outline-info:hover, .btn-outline-info:active, .btn-outline-info:focus {
+
+  background-color: #FFFFFF !important;
+  
+}
+</style>
+</head>
+
+<div *ngIf="navigate" class="tabsNav">
+  <button type="button" class="btn btn-outline-info scroller scroller-right" (click)="moveRight()"><span class="close">></span></button>
+  <button type="button" class="btn btn-outline-info scroller scroller-left" (click)="moveLeft()"><span class="close"><</span></button>
+  <!--<div class="scroller scroller-right" (click)="moveRight()"><span class="close">&ndash;&gt;</span></div>
+  <div class="scroller scroller-left" (click)="moveLeft()"><span class="close"><&#45;&#45;</span></div>-->
+</div>
+
+<div *ngIf="tabs.length > 0" class="wrapper" #wrapper>
+  <ul class="nav nav-pills list">
+    <li class="nav-item" style="border-radius: 3px" *ngFor="let tab of tabs; let i = index">
+      <div class="btn-group" #item>
+
+        <a class="btn btn-outline-info" style="-webkit-text-fill-color: black; "  [class.active]="tab.active"        (click)="closeTab(i)"  href="#{{tab.path}}">{{tab.path}} x</a>
+      <!--  <a  (click)="closeTab(i)"><span class="close">x</span></a>
+      </div>
+    </li>
+  </ul>
+  <!--<kendo-tabstrip>
+    <kendo-tabstrip-tab *ngFor="let tab of tabs; let i = index" [title]="tab.path" [selected]="tab.active"></kendo-tabstrip-tab>
+  </kendo-tabstrip>-->
+</div>
+
+<div *ngIf="tabs.length > 0" class="tabsDrop dropdown" customdropdown>
+  <button class="btn btn-outline-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Tabs
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" *ngFor="let tab of tabs; let i = index" style="-webkit-text-fill-color: black" [class.active]="tab.active" href="#{{tab.path}}">{{tab.path}}</a>
+  </div>
+</div>

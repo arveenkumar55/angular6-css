@@ -1,0 +1,5 @@
+<div *ngIf="tabs.length > 0">
+  <div *ngFor="let tab of tabs; let i = index">
+    <app-tab *ngIf="i === selected" [link]="tab.url"></app-tab>
+  </div>
+</div>
